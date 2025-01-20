@@ -10,6 +10,11 @@ namespace ConsoleApplication
             GetSubString.test();
             JoiningStrings joiningStrings = new JoiningStrings();
             joiningStrings.test();
+            string[] alphabets = new string[]{"d","b","a","c"};
+            Console.WriteLine(alphabets);
+            Console.WriteLine("Unsorted: " + string.Join(", ", alphabets));
+            Array.Sort(alphabets);
+            Console.WriteLine("Sorted: " + string.Join(", ", alphabets));
         }
     }
 
