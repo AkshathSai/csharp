@@ -15,6 +15,12 @@ namespace ConsoleApplication
             Console.WriteLine("Unsorted: " + string.Join(", ", alphabets));
             Array.Sort(alphabets);
             Console.WriteLine("Sorted: " + string.Join(", ", alphabets));
+            
+            int num = 10;
+            Console.WriteLine("Value of num before calling function: " + num);
+            PassByReferenceSample passByReferenceSample = new PassByReferenceSample();
+            passByReferenceSample.test(ref num);
+            Console.WriteLine("Value of num after calling function: " + num);
         }
     }
 
@@ -43,4 +49,9 @@ namespace ConsoleApplication
         }
     }
 
+    class PassByReferenceSample {
+        public void test(ref int num) {
+            num++;
+        }
+    }
 }
