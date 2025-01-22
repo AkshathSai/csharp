@@ -21,6 +21,11 @@ namespace ConsoleApplication
             PassByReferenceSample passByReferenceSample = new PassByReferenceSample();
             passByReferenceSample.test(ref num);
             Console.WriteLine("Value of num after calling function: " + num);
+
+            Vector v1 = new Vector(10, 15);
+            Vector v2;
+            v2 = --v1;
+            v2.displayVector();
         }
     }
 
@@ -52,6 +57,26 @@ namespace ConsoleApplication
     class PassByReferenceSample {
         public void test(ref int num) {
             num++;
+        }
+    }
+
+    class Vector {
+        int x, y;
+        public Vector() {}
+        public Vector(int a, int b) {
+            x = a;
+            y = b;
+        }
+
+        public void displayVector() {
+            Console.WriteLine("{0}, {1}", x, y);
+        }
+
+        // method for overloading unary minus
+        public static Vector operator--(Vector v1) {
+            v1.x = --v1.x;
+            v1.y = --v1.y;
+            return new Vector(v1.x, v1.y);
         }
     }
 }
